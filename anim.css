@@ -1,0 +1,180 @@
+:root {
+    background-color: white;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0px;
+    height: 100%;
+    width: 100%;   
+}
+
+
+.container {
+    background-color: none;
+    margin: auto auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.container > div {
+    height: 100px;
+    max-width: 100px;
+    background-color: black;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.line {
+    border: 1px solid white;
+    margin: auto;
+    width: 10px;
+    height: 30px;
+    background-color: white;
+    border-radius: 5px;
+    animation: spin-y 1s linear infinite normal forwards running;
+}
+
+@keyframes spin-y {
+    0% { 
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.circle {
+    border: 1px solid white;
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    animation: spin-x 1s linear infinite normal forwards running;
+}
+
+@keyframes spin-x {
+    0% { 
+        transform: rotateX(0deg)
+    }
+    100% {
+        transform: rotateX(360deg)
+    }
+}
+
+.hamburger {
+    display: block;
+    position: relative;
+    /** Animate the main item and the after and before use the same animation */
+    animation: spin-y 3s linear infinite normal forwards running; 
+}
+
+.hamburger,
+.hamburger::after,
+.hamburger::before {
+    /* border: 3px solid white; */
+    width: 3em;
+    height: 3px;
+    background-color: white;
+    border-radius: 15%;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0px;
+}
+
+.hamburger::before {
+    top: 6px;
+}
+
+.hamburger::after {
+    bottom: 6px;
+}
+
+button {
+    background: #e5ac8e;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 0.5em;
+    padding: 0 1em;
+    position: relative;
+    overflow: hidden;
+    line-height: 32px;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    bottom: -50%;
+    left: -50%;
+    background: linear-gradient(to bottom, rgba(229, 172, 142, 0), rgba(255,255,255,0.5) 50%, rgba(229, 172, 142, 0));
+    transform: rotateZ(60deg) translate(-5em, 7.5em);
+  }
+
+  button:hover::after, button:focus::after {
+    animation: sheen 1s forwards;
+  }
+
+  @keyframes sheen {
+    100% {
+      transform: rotateZ(60deg) translate(1em, -9em);
+    }
+  }
+
+.triangle-container {
+    position: relative;
+}
+
+.triangle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.triangle {  
+    animation: spin-y 3s linear infinite normal forwards running; 
+}
+
+.triangle div {
+    /* position: relative;    */
+    /* display: inline-block; */
+    position: absolute;
+    background-color: green;
+    height: 3px;
+    width: 100%;
+}
+
+.triangle div:nth-child(1) {
+    background-color: green;
+    top: 39px;
+    width: 80%;
+    left: 29px;
+    transform: rotate(60deg);
+}
+
+.triangle div:nth-child(2) {
+    background-color: green;
+    width: 80%;
+    top: 39px;
+    left: -10px;
+    transform: rotate(-60deg);
+}
+
+.triangle div:nth-child(3) {
+    top: 75px;
+    width: 80%;
+    left: 10%;
+}
